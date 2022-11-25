@@ -8,9 +8,8 @@ public class Sniper extends Unit {
     }
 
     @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return "СНАЙПЕР:  " + super.toString() + ", Выстрелы: " + shoots + ", " + state + "\n";
+    public String getInfo() {
+        return "СНАЙПЕР:  " + super.getInfo() + ", Выстрелы: " + shoots + ", " + state + "\n";
     }
 
 }

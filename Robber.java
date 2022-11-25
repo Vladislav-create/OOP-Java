@@ -5,8 +5,7 @@ public class Robber extends Unit {
     }
 
     @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return "РАЗБОЙНИК:  " + super.toString() + ", " + state + "\n";
+    public String getInfo() {
+        return "РАЗБОЙНИК:  " + super.getInfo() + ", " + state + "\n";
     }
 }

@@ -8,8 +8,8 @@ public class Peasant extends Unit {
     }
 
     @Override
-    public String toString() {
-        return "КРЕСТЬЯНИН:  " + super.toString() + ", Доставка, " + state + "\n";
+    public String getInfo() {
+        return "КРЕСТЬЯНИН:  " + super.getInfo() + ", Доставка, " + state + "\n";
     }
 
 }
