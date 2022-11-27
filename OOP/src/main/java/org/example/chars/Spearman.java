@@ -1,3 +1,7 @@
+package org.example.chars;
+
+import org.example.Unit;
+
 public class Spearman extends Unit {
 
     public Spearman() {
@@ -6,6 +10,6 @@ public class Spearman extends Unit {
 
     @Override
     public String getInfo() {
-        return "КОПЕЙЩИК:  " + super.getInfo() + ", " + state + "\n";
+        return "Spearman:  " + super.getInfo() + ", " + state + "\n";
     }
 }

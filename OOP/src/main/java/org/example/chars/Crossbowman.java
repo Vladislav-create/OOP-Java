@@ -1,3 +1,7 @@
+package org.example.chars;
+
+import org.example.Unit;
+
 public class Crossbowman extends Unit {
 
     private int shoots;
@@ -9,7 +13,7 @@ public class Crossbowman extends Unit {
 
     @Override
     public String getInfo() {
-        return "АРБАЛЕТЧИК:  " + super.getInfo() + ", Выстрелы: " + shoots + ", " + state + "\n";
+        return "Crossbowman:  " + super.getInfo() + ", выстрелы: " + shoots + ", " + state + "\n";
     }
 
 }

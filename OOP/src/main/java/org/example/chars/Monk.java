@@ -1,18 +1,22 @@
+package org.example.chars;
+
+import org.example.Unit;
+
 import java.util.List;
 
-public class Wizard extends Unit {
+public class Monk extends Unit {
 
     private boolean magic;
 
-    public Wizard(List<Unit> gang) {
-        super(17, 12, new int[] { -5, -5 }, 30, 9, "Stand");
+    public Monk(List<Unit> gang) {
+        super(12, 7, new int[] { -4, -4 }, 30, 5, "Stand");
         magic = true;
         super.gang = gang;
     }
 
     @Override
     public String getInfo() {
-        return "КОЛДУН:  " + super.getInfo() + ", Магия, " + state + "\n";
+        return "Monk:  " + super.getInfo() + ", магия, " + state + "\n";
     }
 
     @Override

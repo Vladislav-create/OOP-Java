@@ -1,3 +1,7 @@
+package org.example.chars;
+
+import org.example.Unit;
+
 public class Peasant extends Unit {
 
     private boolean delivery;
@@ -9,7 +13,7 @@ public class Peasant extends Unit {
 
     @Override
     public String getInfo() {
-        return "КРЕСТЬЯНИН:  " + super.getInfo() + ", Доставка, " + state + "\n";
+        return "Peasant:  " + super.getInfo() + ", доставка, " + state + "\n";
     }
 
 }

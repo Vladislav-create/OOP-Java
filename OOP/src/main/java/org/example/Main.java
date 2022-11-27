@@ -1,10 +1,15 @@
+package org.example;
+
+import org.example.chars.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
 public class Main {
 
-    private static final int GANG_SIZE = 5;
+    private static final int GANG_SIZE = 5; //asdasd
 
     public static void main(String[] args) {
         List<Unit> darkSide = new ArrayList<>();
@@ -23,11 +28,12 @@ public class Main {
         System.out.println();
         darkSide.forEach(Unit::step);
         whiteSide.forEach(Unit::step);
-        
+
         darkSide.forEach(unit -> System.out.println(unit.getInfo()));
         System.out.println();
         whiteSide.forEach(unit -> System.out.println(unit.getInfo()));
         System.out.println();
+        System.out.println(darkSide);
     }
 
     private static Unit getUnit(int origin, List<Unit> side) {
@@ -56,3 +62,4 @@ public class Main {
 
     // }
 }
+
