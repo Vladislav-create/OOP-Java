@@ -1,26 +1,23 @@
 package org.example.chars;
 
-import org.example.Unit;
-
 import java.util.List;
 
 public class Wizard extends Unit {
 
     private boolean magic;
 
-    public Wizard(List<Unit> gang) {
-        super(17, 12, new int[] { -5, -5 }, 30, 9, "Stand");
+    public Wizard(List<Unit> gang, int x, int y) {
+        super(17, 12, new int[] { -5, -5 }, 30, 9, "Некромант","Stand");
         magic = true;
         super.gang = gang;
+        super.position = new PositionUnit(x, y);
     }
 
     @Override
-    public String getInfo() {
-        return "Wizard:  " + super.getInfo() + ", магия, " + state + "\n";
-    }
+    public String getInfo() {return super.name + ": " + super.getInfo() + ", магия, " + state;}
 
     @Override
-    public void step() {
+    public void step(List<Unit> gang) {
         float minHealth = Integer.MAX_VALUE;
         int minHealthIndex = -1;
         for (int i = 0; i < gang.size(); i++) {

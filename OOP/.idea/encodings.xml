@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/ConsoleView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Crossbowman.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Monk.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Peasant.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Robber.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Sniper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Spearman.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Unit.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/UnitInterface.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/chars/Wizard.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,26 +1,25 @@
 package org.example.chars;
 
-import org.example.Unit;
-
 import java.util.List;
 
 public class Monk extends Unit {
 
     private boolean magic;
 
-    public Monk(List<Unit> gang) {
-        super(12, 7, new int[] { -4, -4 }, 30, 5, "Stand");
+    public Monk(List<Unit> gang, int x, int y) {
+        super(12, 7, new int[] { -4, -4 }, 30, 5, "Монах","Stand");
         magic = true;
         super.gang = gang;
+        super.position = new PositionUnit(x, y);
     }
 
     @Override
     public String getInfo() {
-        return "Monk:  " + super.getInfo() + ", магия, " + state + "\n";
+        return super.name + ": " + super.getInfo() + ", магия, " + state;
     }
 
     @Override
-    public void step() {
+    public void step(List<Unit> gang) {
         float minHealth = Integer.MAX_VALUE;
         int minHealthIndex = -1;
         for (int i = 0; i < gang.size(); i++) {
