@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.chars.PositionUnit;
+import org.example.chars.Unit;
 
 import java.util.Collections;
 import java.util.Locale;
@@ -24,11 +25,25 @@ public class ConsoleView {
         step++;
 
         System.out.println(ConsoleView.topTable);
-        String space = "    ";
+        String space = "                ";
+
+
+        int maxLongData = 1;
+        for (Unit dataUnit : Main.whiteSide) {
+            if (maxLongData < dataUnit.getInfo().length()) {
+                maxLongData = dataUnit.getInfo().length();
+            }
+        }
         for (int i = 1; i <= Main.GANG_SIZE - 1; i++) {
+            StringBuilder str = new StringBuilder(space);
+            if (Main.whiteSide.get(i - 1).getInfo().length() < maxLongData) {
+                int delta = maxLongData - Main.whiteSide.get(i - 1).getInfo().length();
+                for (int d = 0; d < delta; d++) {
+                    str.append(" ");
+                }
 
-            String dataUnit = space + AnsiColors.ANSI_GREEN + Main.whiteSide.get(i - 1).getInfo() + space + AnsiColors.ANSI_BLUE + Main.darkSide.get(i - 1).getInfo() + AnsiColors.ANSI_RESET;
-
+            }
+            String dataUnit = space + AnsiColors.ANSI_GREEN + Main.whiteSide.get(i - 1).getInfo() + str + AnsiColors.ANSI_BLUE + Main.darkSide.get(i - 1).getInfo() + AnsiColors.ANSI_RESET;
 
             for (int j = 1; j <= Main.GANG_SIZE; j++) {
                 System.out.print(iconUnit(new PositionUnit(j, i)));
@@ -40,11 +55,20 @@ public class ConsoleView {
         for (int j = 1; j <= Main.GANG_SIZE; j++) {
             System.out.print(iconUnit(new PositionUnit(j, Main.GANG_SIZE)));
         }
-        String dataLastUnit = space + AnsiColors.ANSI_GREEN + Main.whiteSide.get(Main.GANG_SIZE - 1).getInfo() + space + AnsiColors.ANSI_BLUE + Main.darkSide.get(Main.GANG_SIZE - 1).getInfo() + AnsiColors.ANSI_RESET;
+        StringBuilder lastStr = new StringBuilder(space);
+        if (Main.whiteSide.get(Main.GANG_SIZE - 1).getInfo().length()<maxLongData){
+            int delta = maxLongData-Main.whiteSide.get(Main.GANG_SIZE - 1).getInfo().length();
+            for (int d = 0; d < delta; d++) {
+                lastStr.append(" ");
+            }
+        }
+        String dataLastUnit = space + AnsiColors.ANSI_GREEN + Main.whiteSide.get(Main.GANG_SIZE - 1).getInfo() + lastStr + AnsiColors.ANSI_BLUE + Main.darkSide.get(Main.GANG_SIZE - 1).getInfo() + AnsiColors.ANSI_RESET;
         System.out.println("|" + dataLastUnit);
 
         System.out.println(ConsoleView.bottomTable);
         System.out.println("Нажмите Enter для продолжения.");
+//        StringBuilder str = new StringBuilder(dataLastUnit);
+//        System.out.println(str.append("sdfsdfsdf: "));
     }
 
     private static String iconUnit(PositionUnit position) {

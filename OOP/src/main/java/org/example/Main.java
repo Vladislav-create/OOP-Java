@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static final int GANG_SIZE = 5;
+    public static final int GANG_SIZE = 15;
     public static List<Unit> whiteSide;
     public static List<Unit> darkSide;
 
