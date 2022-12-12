@@ -4,10 +4,11 @@ import java.util.List;
 
 public class Robber extends Unit {
 
-    public Robber(List<Unit> gang, int x, int y) {
+    public Robber(List<Unit> gang, List<Unit> side, int x, int y) {
         super(8, 3, new int[] { 2, 4 }, 10, 6, "Разбойник","Stand");
         super.gang = gang;
         super.position = new PositionUnit(x, y);
+        super.side = side;
     }
 
     @Override

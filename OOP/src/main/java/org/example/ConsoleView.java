@@ -67,8 +67,6 @@ public class ConsoleView {
 
         System.out.println(ConsoleView.bottomTable);
         System.out.println("Нажмите Enter для продолжения.");
-//        StringBuilder str = new StringBuilder(dataLastUnit);
-//        System.out.println(str.append("sdfsdfsdf: "));
     }
 
     private static String iconUnit(PositionUnit position) {

@@ -6,11 +6,12 @@ public class Monk extends Unit {
 
     private boolean magic;
 
-    public Monk(List<Unit> gang, int x, int y) {
+    public Monk(List<Unit> gang, List<Unit> side, int x, int y) {
         super(12, 7, new int[] { -4, -4 }, 30, 5, "Монах","Stand");
         magic = true;
         super.gang = gang;
         super.position = new PositionUnit(x, y);
+        super.side = side;
     }
 
     @Override
@@ -19,7 +20,7 @@ public class Monk extends Unit {
     }
 
     @Override
-    public void step(List<Unit> gang) {
+    public void step() {
         float minHealth = Integer.MAX_VALUE;
         int minHealthIndex = -1;
         for (int i = 0; i < gang.size(); i++) {

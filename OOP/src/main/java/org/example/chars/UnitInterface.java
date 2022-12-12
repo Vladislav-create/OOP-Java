@@ -6,5 +6,5 @@ public interface UnitInterface {
 
     String getInfo();
 
-    void step(List<Unit> gang);
+    void step();
 }

@@ -6,18 +6,19 @@ public class Wizard extends Unit {
 
     private boolean magic;
 
-    public Wizard(List<Unit> gang, int x, int y) {
+    public Wizard(List<Unit> gang, List<Unit> side, int x, int y) {
         super(17, 12, new int[] { -5, -5 }, 30, 9, "Некромант","Stand");
         magic = true;
         super.gang = gang;
         super.position = new PositionUnit(x, y);
+        super.side = side;
     }
 
     @Override
     public String getInfo() {return super.name + ": " + super.getInfo() + ", магия, " + state;}
 
     @Override
-    public void step(List<Unit> gang) {
+    public void step() {
         float minHealth = Integer.MAX_VALUE;
         int minHealthIndex = -1;
         for (int i = 0; i < gang.size(); i++) {

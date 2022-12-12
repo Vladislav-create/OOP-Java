@@ -6,12 +6,19 @@ public class Peasant extends Unit {
 
     private boolean delivery;
 
-    public Peasant(List<Unit> gang, int x, int y) {
+    public Peasant(List<Unit> gang, List<Unit> side, int x, int y) {
         super(1, 1, new int[] { 1, 1 }, 1, 3, "крестьянин","Stand");
         delivery = true;
         super.gang = gang;
         super.position = new PositionUnit(x, y);
+        super.side = side;
+    }
 
+    @Override
+    public void step() {
+        if (state.equals("Занят Я!!!")){
+            state = "Стоит";
+        }
     }
 
     @Override
