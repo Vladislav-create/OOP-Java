@@ -1,21 +1,25 @@
 package org.example.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public class Wizard extends Unit {
 
     private boolean magic;
 
     public Wizard(List<Unit> gang, List<Unit> side, int x, int y) {
-        super(17, 12, new int[] { -5, -5 }, 30, 9, "Некромант","Stand");
+        super(17, 12, new int[]{-5, -5}, 30, 9, "Некромант", "Stand");
         magic = true;
         super.gang = gang;
         super.position = new PositionUnit(x, y);
         super.side = side;
+        quantity = new Random().nextInt(1, 3);
     }
 
     @Override
-    public String getInfo() {return super.name + ": " + super.getInfo() + ", магия, " + state;}
+    public String getInfo() {
+        return super.name + ": " + super.getInfo() + ", магия, " + state;
+    }
 
     @Override
     public void step() {

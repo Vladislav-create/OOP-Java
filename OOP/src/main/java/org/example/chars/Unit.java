@@ -1,19 +1,20 @@
 package org.example.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public abstract class Unit implements UnitInterface {
-    public String name;
-    public int attack;
-    public int protect;
-    public int[] damage;
-    public float health;
-    public final float maxHealth;
-    public int speed;
-    public String state;
-    public List<Unit> gang, side;
-
-    public PositionUnit position;
+    protected String name;
+    protected int attack;
+    protected int protect;
+    protected int[] damage;
+    protected float health;
+    protected final float maxHealth;
+    protected int speed;
+    protected String state;
+    protected List<Unit> gang, side;
+    protected PositionUnit position;
+    protected int quantity;
 
     public Unit(int attack, int protect, int[] damage, float health, int speed, String name, String state) {
         this.attack = attack;
@@ -33,26 +34,35 @@ public abstract class Unit implements UnitInterface {
 
     public float calcDamage(Unit unit) {
         if (unit.protect - this.attack == 0) {
-            return (this.damage[0] + this.damage[1]) / 2.0f;
+            return ((this.damage[0] + this.damage[1]) / 2.0f) * quantity;
         }
         if (unit.protect - this.attack < 0) {
-            return this.damage[1];
+            return this.damage[1] * quantity;
         }
-        return this.damage[0];
+        return this.damage[0] * quantity;
     }
 
     public void getDamage(float damage) {
-        health -= damage;
-        if (health<=0){
-            health=0;
+        double tmpHealth = (quantity - 1) * maxHealth + health;
+        tmpHealth -= damage;
+        if (tmpHealth <= 0) {
+            this.health = 0;
             state = "Погиб мучительной смертью";
+            quantity = 0;
+        } else {
+            quantity = (int) (tmpHealth / maxHealth);
+            health = maxHealth;
+            if (tmpHealth % maxHealth > 0) {
+                quantity++;
+                health = (float) (tmpHealth % maxHealth);
+            }
         }
     }
 
     @Override
     public String getInfo() {
-        return "а:" + attack + ", з:" + protect + ", у:" + (damage[0] + damage[1]) / 2 + ", зд:"
-                + health + ", с:" + speed;
+        return "Кол-во: " + quantity + "   а:" + attack + ", з:" + protect + ", у:" + ((damage[0] + damage[1]) / 2) * quantity + ", зд:"
+                + (health * quantity) + ", с:" + speed;
     }
 
     @Override

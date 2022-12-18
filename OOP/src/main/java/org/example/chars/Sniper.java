@@ -1,21 +1,25 @@
 package org.example.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public class Sniper extends Unit {
 
     private int shoots;
 
     public Sniper(List<Unit> gang, List<Unit> side, int x, int y) {
-        super(12, 10, new int[] { 8, 10 }, 15, 8, "Снайпер","Stand");
+        super(12, 10, new int[]{8, 10}, 15, 8, "Снайпер", "Stand");
         shoots = 32;
         super.gang = gang;
         super.position = new PositionUnit(x, y);
         super.side = side;
+        quantity = new Random().nextInt(1, 3);
     }
 
     @Override
-    public String getInfo() {return super.name + ": " + super.getInfo() + ", выстрелы: " + shoots + ", " + state;}
+    public String getInfo() {
+        return super.name + ": " + super.getInfo() + ", выстрелы: " + shoots + ", " + state;
+    }
 
     @Override
     public void step() {

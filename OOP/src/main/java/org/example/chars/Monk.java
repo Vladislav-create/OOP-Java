@@ -1,17 +1,19 @@
 package org.example.chars;
 
 import java.util.List;
+import java.util.Random;
 
 public class Monk extends Unit {
 
     private boolean magic;
 
     public Monk(List<Unit> gang, List<Unit> side, int x, int y) {
-        super(12, 7, new int[] { -4, -4 }, 30, 5, "Монах","Stand");
+        super(12, 7, new int[]{-4, -4}, 30, 5, "Монах", "Stand");
         magic = true;
         super.gang = gang;
         super.position = new PositionUnit(x, y);
         super.side = side;
+        quantity = new Random().nextInt(1, 5);
     }
 
     @Override
