@@ -20,7 +20,7 @@ public abstract class Unit implements UnitInterface {
         this.attack = attack;
         this.protect = protect;
         this.damage = damage;
-        this.health = health / 2;
+        this.health = health;
         this.maxHealth = health;
         this.speed = speed;
         this.state = state;
